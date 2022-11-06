@@ -7,12 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인 화면 샘플 - Bootstrap</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylessheet" href="../static/css/logo.css">
   <style>
+    *{
+      font-family: 'Nanum Gothic Coding', monospace;
+    }
     body {
       min-height: 100vh;
       background-color: #e5edf8;
@@ -37,11 +42,15 @@
       background-color: #e5edf8;
       list-style-type: none;
       margin: 10;
-      padding: 10;
+      padding:8px 19px 8px 16px;
       overflow: hidden;
       border : 2px solid #fff;
+      font-size: 18px;
     }
-    li {float: left; }
+    li {
+      float: left;
+      margin-left: 30px;
+    }
     li a {
       display: block;
       background-color: #e5edf8;
@@ -81,7 +90,7 @@
       <div class="input-form col-md-12 mx-auto">
         <form class="validation-form" novalidate>
             <div class="mb-3">
-              <label for="id">ID</label>
+              <label for="id">Id</label>
               <input type="text" class="form-control" id="id" placeholder="" value="" required>
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
@@ -96,7 +105,7 @@
           </div>
           <div class="mb-4"></div>
           <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: #12406A">Login</button>
-          <button class="btn" type="submit" style="float:right">Sign in</button>
+          <button class="btn" type="submit" style="float:right" onclick="location.href='../templates/signup.html'">Sign in</button>
         </form>
       </div>
     </div>
