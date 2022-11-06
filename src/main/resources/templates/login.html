@@ -14,19 +14,14 @@
   <style>
     body {
       min-height: 100vh;
-
-      background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#1d466c));
-      background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
-      background: -moz-linear-gradient(bottom left, #92b5db 0%, hsl(209, 58%, 27%) 100%);
-      background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
-      background: linear-gradient(to top right, #92b5db 0%, #1d466c 100%);
+      background-color: #e5edf8;
     }
 
     .input-form {
-      max-width: 680px;
+      max-width: 500px;
 
-      margin-top: 80px;
-      padding: 32px;
+      margin-top: 20px;
+      padding: 40px;
 
       background: #fff;
       -webkit-border-radius: 10px;
@@ -34,35 +29,73 @@
       border-radius: 10px;
       -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
       -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      border-radius: 60px;
+    }
+    ul {
+      background-color: #e5edf8;
+      list-style-type: none;
+      margin: 10;
+      padding: 10;
+      overflow: hidden;
+      border : 2px solid #fff;
+    }
+    li {float: left; }
+    li a {
+      display: block;
+      background-color: #e5edf8;
+      color:#fff;
+      padding: 15px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+    }
+    li a:hover{
+      background-color: #e5edf8;
+      color:#12406A;
     }
   </style>
 </head>
 
 <body>
+  <div class="page">
+    <header>
+        <nav>
+            <ul>
+                <li class="nav-item">
+                  <a href="#">
+                    <img src="${C:\Users\jdjek\project\SYNERGY\src\main\resources\static\img\S.png}"/>
+                  </a>
+                </li>
+                <li><a href="#">Introduction</a></li>
+                <li><a href="">Necessity</a></li>
+                <li><a href="">Tips</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+  <h1 align="center" style="color:#fff">Let's get started!</h1>
   <div class="container">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
-        <h4 class="mb-3">로그인</h4>
         <form class="validation-form" novalidate>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="id">아이디</label>
+            <div class="mb-3">
+              <label for="id">ID</label>
               <input type="text" class="form-control" id="id" placeholder="" value="" required>
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
             </div>
-          </div>
           <div class="mb-3">
-            <label for="pw">패스워드</label>
+            <label for="pw">Password</label>
             <input type="pw" class="form-control" id="pw" placeholder="" required>
             <div class="invalid-feedback">
               패스워드를 입력해주세요.
             </div>
           </div>
           <div class="mb-4"></div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">로그인</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: #12406A">Login</button>
+          <button class="btn" type="submit" style="float:right">Sign in</button>
         </form>
       </div>
     </div>
