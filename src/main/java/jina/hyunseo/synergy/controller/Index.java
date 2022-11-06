@@ -11,6 +11,10 @@ public class Index {
     }
     @GetMapping(value = "/login")
     public String Login(){
-        return "fragments/login";
+        return "login";
+    }
+    @GetMapping(value = "/signup")
+    public String Signup(){
+        return "signup";
     }
 }
