@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class Index {
     @GetMapping(value = "/index")
-    public String Strart() {
-        return "index";
+    public String Start() {
+        return "index2";
     }
 
     @GetMapping(value = "/login")
