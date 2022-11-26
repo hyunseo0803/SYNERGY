@@ -42,8 +42,8 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 0,0,0;
-  --bs-secondary-rgb: 0, 0, 0;
+  --bs-primary-rgb: 113,92,168;
+  --bs-secondary-rgb: 113,92,168;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -468,6 +468,44 @@ legend + * {
   -webkit-appearance: button;
 }
 
+.container-4 input#search{
+  width: 300px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  font-size: 10pt;
+  margin-top: 20px;
+  float: center;
+  color: #000;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container-4 button.icon{
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+ 
+  border: none;
+  background: #2b103b; /*search_btn 부분 색상 변경*/
+  height: 50px;
+  width: 50px;
+  color: #4f5b66;
+  opacity: 1;
+  font-size: 10pt;
+ 
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
 output {
   display: inline-block;
 }
@@ -559,6 +597,7 @@ progress {
     font-size: 2.5rem;
   }
 }
+
 
 .list-unstyled {
   padding-left: 0;
@@ -3029,35 +3068,36 @@ textarea.form-control-lg {
   pointer-events: none;
   opacity: 0.65;
 }
-
+/*btn color 색 변경*/
 .btn-primary {
   color: #fff;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+  background-color: #416eb6;
+  border-color: #416eb6;
 }
+/*btn color active 색 변경*/
 .btn-primary:hover {
   color: #fff;
-  background-color: #16a085;
-  border-color: #15967d;
+  background-color: #efc638;
+  border-color: #efc638;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
-  background-color: #16a085;
-  border-color: #15967d;
+  background-color: #efc638;
+  border-color: #efc638;
   box-shadow: 0 0 0 0.25rem rgba(60, 198, 171, 0.5);
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #15967d;
-  border-color: #148d75;
+  background-color: #efc638;
+  border-color: #efc638;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.25rem rgba(60, 198, 171, 0.5);
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+  background-color: #416eb6;
+  border-color: #416eb6;
 }
 
 .btn-secondary {
@@ -3092,8 +3132,8 @@ textarea.form-control-lg {
 
 .btn-success {
   color: #fff;
-  background-color: #198754;
-  border-color: #198754;
+  background-color: #efc638;
+  border-color: #efc638;
 }
 .btn-success:hover {
   color: #fff;
@@ -3944,7 +3984,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #1abc9c;
+  color: #fff;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
@@ -3954,7 +3994,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #15967d;
+  color: #fff;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -4001,7 +4041,7 @@ textarea.form-control-lg {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #1abc9c;
+  background-color: #efc638;
 }
 
 .nav-fill > .nav-link,
@@ -4020,6 +4060,10 @@ textarea.form-control-lg {
 .nav-fill .nav-item .nav-link,
 .nav-justified .nav-item .nav-link {
   width: 100%;
+}
+
+.nav-item {
+  background-color: #000;
 }
 
 .tab-content > .tab-pane {
@@ -5581,6 +5625,11 @@ textarea.form-control-lg {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
+}
+
+.footer 
+{margin:0 auto; 
+  text-align:center;
 }
 
 .modal-footer {
@@ -9562,6 +9611,8 @@ textarea.form-control-lg {
   .mx-lg-1 {
     margin-right: 0.25rem !important;
     margin-left: 0.25rem !important;
+    border: 0;
+    outline: 0;
   }
 
   .mx-lg-2 {
@@ -11369,14 +11420,15 @@ html {
 #mainNav .navbar-nav li.nav-item a.nav-link {
   color: #fff;
 }
+
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #1abc9c;
+  color: #2b103b;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
   color: #fff;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #1abc9c;
+  color: #efc638;
 }
 #mainNav .navbar-toggler {
   font-size: 80%;
@@ -11396,13 +11448,14 @@ html {
   #mainNav .navbar-nav {
     margin-top: 0;
   }
+  /*nav-item_title active color 변경*/
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
     color: #fff;
-    background: #1abc9c;
+    background: #efc638;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
     color: #fff;
-    background: #1abc9c;
+    background: #416eb6; /*navbar 폰트들 액션시 색상변경*/
   }
 
   #mainNav.navbar-shrink {
@@ -11436,7 +11489,7 @@ html {
   padding-bottom: 6rem;
 }
 .masthead .masthead-heading {
-  font-size: 2.75rem;
+  font-size: 2.75rem; /*화면 좁아지면 시너지 글자크기 변경*/
   line-height: 2.75rem;
 }
 .masthead .masthead-subheading {
@@ -11452,7 +11505,7 @@ html {
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
-    font-size: 4rem;
+    font-size: 4rem; /*본래 화면일 때 시너지 글자크기 변경*/
     line-height: 3.5rem;
   }
   .masthead .masthead-subheading {
@@ -11467,13 +11520,15 @@ html {
   border-radius: 0.5rem;
   overflow: hidden;
 }
+
+/*portfolio item 투명막*/
 .portfolio .portfolio-item .portfolio-item-caption {
   position: absolute;
   top: 0;
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  background-color: rgba(255,255,255,0.2);
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;
@@ -11501,7 +11556,7 @@ html {
 .footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #2c3e50;
+  background-color: #2b103b;
   color: #fff;
 }
 
