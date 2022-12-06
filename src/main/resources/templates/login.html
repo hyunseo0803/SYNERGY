@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 화면 샘플 - Bootstrap</title>
+  <title>로그인 화면</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
@@ -23,38 +23,21 @@
           <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
           <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style="background-color: #715ca8;">
   <header>
-    <div th:replace="fragments/common::navbar"></div>
+    <div th:replace="fragments/common2::navbar"></div>
   </header>
   <div class="container">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <form class="validation-form" novalidate>
           <div class="mb-3">
-            <label for="id">Id</label>
-            <input type="text" class="form-control" id="id" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              아이디를 입력해주세요.
+            <h4 class="text-uppercase mb-4" style="font-size: 20px; text-align: center;">Easy Sign-up</h4>
+                <a class="btn btn-outline-light btn-social mx-1" href="https://accounts.google.com/"><i class="fab fa-fw fa-google"></i></a>
             </div>
           </div>
-          <div class="mb-3">
-            <label for="pw">Password</label>
-            <input type="pw" class="form-control" id="pw" placeholder="" required>
-            <div class="invalid-feedback">
-              패스워드를 입력해주세요.
-            </div>
-          </div>
-          <div class="mb-4"></div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit"
-            style="background-color: #000">Login</button>
-        </form>
       </div>
     </div>
-    <footer class="my-3 text-center text-small">
-      <!--<p class="mb-1">&copy; 2022 SYNERGY</p>-->
-    </footer>
-  </div>
 </body>
 
 </html>

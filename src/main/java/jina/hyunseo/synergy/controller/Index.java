@@ -10,6 +10,11 @@ public class Index {
         return "index";
     }
 
+    @GetMapping(value = "/registerproject")
+    public String register() {
+        return "registerproject";
+    }
+
     @GetMapping(value = "/loginhome")
     public String Home() {
         return "loginhome";
