@@ -7,7 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Index {
     @GetMapping(value = "/index")
     public String Start() {
-        return "index2";
+        return "index";
+    }
+
+    @GetMapping(value = "/registerproject")
+    public String register() {
+        return "registerproject";
+    }
+
+    @GetMapping(value = "/loginhome")
+    public String Home() {
+        return "loginhome";
+    }
+
+    @GetMapping(value = "/portfolio")
+    public String folio() {
+        return "portfolio";
     }
 
     @GetMapping(value = "/login")
