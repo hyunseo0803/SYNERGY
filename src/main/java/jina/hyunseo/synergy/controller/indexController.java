@@ -16,5 +16,11 @@ public class indexController{
         
         return "index";
     }
+
+    @GetMapping("/home")
+    public String home(Model model){
+        
+        return "home";
+    }
     
 }
