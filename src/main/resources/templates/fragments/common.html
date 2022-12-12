@@ -11,28 +11,46 @@
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
     type="text/css" />
-<!-- Core theme CSS (includes Bootstrap)-->
+
+<link href="css/styles.css" rel="stylesheet" />
+
 <div th:fragment="navbar">
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-        <link th:href="@{/css/logo.css}" rel="stylessheet">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav" style="padding: 10px;">
         <div class="container">
-            <a class="navbar-brand" href="#page-top"><img src="/img/lightening5.png" style="width:100px; height:100px;" class="logo" /></a>
+            <a class="navbar-brand" href="#page-top"><img src="/assets/img/lightening5.png"
+                    style="width:100px; height:100px;" class="logo" /></a>
             <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive" >
-                <ul class="navbar-nav ms-auto" style="background-color: #715ca8;">
-                    <li class="nav-item mx-0 mx-lg-1" style="background-color: #715ca8;"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index#portfolio" style="background-color: #715ca8;">Necessity</a></li>
-                    <li class="nav-item mx-0 mx-lg-1" style="background-color: #715ca8;"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index#about" style="background-color: #715ca8;">Information</a></li>
-                    <li class="nav-item mx-0 mx-lg-1" style="background-color: #715ca8;"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index#contact" style="background-color: #715ca8;">Portfolio</a></li>
-                    <button class="nav-item mx-0 mx-lg-1" style="background-color: #715ca8;" ><a class="nav-link py-3 px-0 px-lg-3 rounded" href="\index">Home</a></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto" style="background-color: #91b0d3;">
+                    <li class="nav-item mx-0 mx-lg-1" style="background-color: #91b0d3;"><a
+                            class="nav-link py-3 px-0 px-lg-3 rounded" href="/#portfolio"
+                            style="background-color: #91b0d3;">Necessity</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" style="background-color: #91b0d3;"><a
+                            class="nav-link py-3 px-0 px-lg-3 rounded" href="/#about"
+                            style="background-color: #91b0d3;">Information</a></li>
+                    <li class="dropdown" th:if="${not #strings.isEmpty(name)}">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="background-color: #91b0d3; border:0; outline:0;">
+                            Down
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #91b0d3;">
+                            <a class="dropdown-item" href="/portfolio">Myfolio</a>
+                            <a class="dropdown-item" href="/posting">Posting</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
