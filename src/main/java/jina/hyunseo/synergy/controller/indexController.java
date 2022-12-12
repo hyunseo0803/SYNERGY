@@ -37,15 +37,15 @@ public class indexController{
     @Autowired
     private PhotoRepository photoRepository;
 
-    // @GetMapping("/")
-    // public String index(Model model){
-    //     SessionUser user = (SessionUser) httpSession.getAttribute("user");
-    //     if(user != null) {
-    //         model.addAttribute("name", user.getName());
-    //         model.addAttribute("picture", user.getPicture());
-    //     }
-    //     return "index2";
-    // }
+    @GetMapping("/")
+    public String index(Model model){
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if(user != null) {
+            model.addAttribute("name", user.getName());
+            model.addAttribute("picture", user.getPicture());
+        }
+        return "index";
+    }
 
     // @GetMapping("/home")
     // public String home(Model model){
@@ -59,24 +59,24 @@ public class indexController{
     @Autowired
     private PhotoService photoService;
 
-    @GetMapping("post/list")
+    @GetMapping("/foliolist")
     public String list(Model model){
         List<Post> list=postService.getPostList();
         model.addAttribute("postlist",list);
-        return "list";
+        return "foliolist";
     }
 
     @GetMapping("/post/{no}")
     public String detail(@PathVariable("no") Integer post_id, Model model){
         Post post=postService.getPost(post_id);
         model.addAttribute("post", post);
-        return "detail";
+        return "portfolio";
     }
 
     @GetMapping("/post/write") //localhost:8090/post/write
     public String PostingForm(){
 
-        return "index";
+        return "posting";
     }
 
     @PostMapping("/post/write")
@@ -87,14 +87,14 @@ public class indexController{
             photoService.saveFile(multipartFile);
         }
 
-        return "redirect:/view";
+        return "redirect:/portfolio";
     }
 
     @GetMapping("/post/edit/{no}")
     public String edit(@PathVariable("no") Integer post_id, Model model){
         Post post=postService.getPost(post_id);
         model.addAttribute("post", post);
-        return "update";
+        return "updating";
     }
 
     @PutMapping("/post/edit/{no}")
@@ -116,7 +116,7 @@ public class indexController{
 
         model.addAttribute("searchList", searchList);
 
-        return "post-search";
+        return "foliolist";
     }
 
     @GetMapping("/view")
@@ -124,7 +124,7 @@ public class indexController{
 
         List<Photo> files = photoRepository.findAll();
         model.addAttribute("all",files);
-        return "view";
+        return "portfolio";
     }
 
 
@@ -137,14 +137,4 @@ public class indexController{
         return new UrlResource("file:" + file.getFilePath());
     }
     
-    @GetMapping("/post/star")
-    public String review1(Integer temp){
-        System.out.println(temp);
-        return "star";
-    }
-    @PostMapping("/post/star")
-    public String review(@RequestBody Integer temp){
-        System.out.println(temp);
-        return "redirect:/";
-    }
 }
