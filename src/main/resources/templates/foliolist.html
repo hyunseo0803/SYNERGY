@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- bootstrap을 css cdn -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		type="text/css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
+	
+    	<!-- Core theme CSS (includes Bootstrap)-->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <link href="css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/project.js}"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- <link th:href="@{/css/login.css}" rel="stylessheet" > -->
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+	<link th:href="@{/css/login.css}" rel="stylesheet">
+	<!-- jquery cdn -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/login.js}"></script>
+	<!-- Font Awesome icons (free version)-->
+	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+	<!-- Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+		type="text/css" />
+
+    <title>Let's post your postfolio!</title>
+    <link href="css/myfolio.css" rel="stylesheet" />
+</head>
+
+<body id="page-top" style="background-color: #91b0d3;">
+	<header>
+		<div th:replace="fragments/common::navbar"></div>
+	</header>
+
+    <!-- th:if="${not #strings.isEmpty(name)}" 밑에 부분에 넣기-->
+    <div class="container" th:if="${not #strings.isEmpty(name)}">
+        <div class="row">
+            <div class="col-3" th:each="data : ${datalist}">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1563725911583-7d108f720483" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${data.cardTitle}">Portfolio title</h5>
+                        <p class="card-text" th:text="${data.cardText}">write about your story.</p>
+                        <a href="@{/portfolio/{portfolioid}(portfolioid = ${data.portfolioid})}"
+                        class="btn btn-primary">Click</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
