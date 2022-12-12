@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- bootstrap을 css cdn -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		type="text/css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- <link th:href="@{/css/login.css}" rel="stylessheet" > -->
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
+	<link th:href="@{/css/login.css}" rel="stylesheet">
+	<!-- jquery cdn -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/login.js}"></script>
+	<!-- Font Awesome icons (free version)-->
+	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+	<!-- Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+		type="text/css" />
+
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+		</script>
+
+	<link href="css/styles.css" rel="stylesheet" />
+	<script type="text/javascript" th:src="@{/js/project.js}"></script>
+</head>
+
+<body style="background-color: #91b0d3;">
+	<header>
+		<div th:replace="fragments/common::navbar"></div>
+	</header>
+	<div class="container" style="position: absolute; top: 30%;">
+		<!-- 파일 등록을 위해 enctype="multipart/form-data" 을 선언 -->
+		<form action="/post/edit/{no}" class="form-horizontal" id="frm" name="frm" method="post"
+			enctype="multipart/form-data">
+
+			<h1 style="font-size: 25px; text-align: right; color: #fff;">Post your project!</h1>
+
+			<!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
+			<div class="form-group row">
+				<label class="col-sm-2 col-xs-12 col-form-label" for="title"></label>
+				<div class="col-sm-10 col-xs-12">
+					<input class="form-control" id="title" name="title" placeholder="Title..." type="text" value="" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-xs-12 col-form-label" for="title"></label>
+				<div class="col-sm-10 col-xs-12">
+					<input class="form-control" id="link" name="git_url" placeholder="URL... (ex. Git)" type="url"
+						value="" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-xs-12 col-form-label" for="content"></label>
+				<div class="col-sm-10 col-xs-12">
+					<textarea rows="5" class="form-control" id="content" name="content"
+						placeholder="About your project..."></textarea>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-xs-12 col-form-label" for="bfile"></label>
+				<div class="col-sm-10 col-xs-12">
+					<input class="form-control" multiple="multiple" id="file" name="files" type="file" />
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<a class="btn btn-success" onclick="boardIn();return false;" role="button"
+						title="저장" style="float: right;"><i class="fa fa-save"></i><button>Updating</button></a>
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		function boardIn() {
+			$('#frm').submit();
+		}
+	</script>
+
+</body>
+
+</html>
