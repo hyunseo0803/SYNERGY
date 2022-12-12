@@ -53,11 +53,10 @@
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1563725911583-7d108f720483" class="card-img-top"
                         alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${data.cardTitle}">Portfolio title</h5>
-                        <p class="card-text" th:text="${data.cardText}">write about your story.</p>
-                        <a href="@{/portfolio/{portfolioid}(portfolioid = ${data.portfolioid})}"
-                        class="btn btn-primary">Click</a>
+                    <div class="card-body" th:each="saerch : ${searchList}">
+                        <h5 class="card-title" th:text="${search.title}"></h5>
+                        <p class="card-text" th:text="${search.content}"></p>
+                        <a th:href="@{'/post/'+${search.post_id}}" class="btn btn-primary">Click</a>
                     </div>
                 </div>
             </div>
