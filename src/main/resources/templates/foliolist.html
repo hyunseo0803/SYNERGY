@@ -14,12 +14,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
 	
     	<!-- Core theme CSS (includes Bootstrap)-->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    </script> -->
 
     <link href="css/styles.css" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/project.js}"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -51,12 +50,11 @@
         <div class="row">
             <div class="col-3" th:each="data : ${datalist}">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1563725911583-7d108f720483" class="card-img-top"
-                        alt="...">
-                    <div class="card-body" th:each="saerch : ${searchList}">
-                        <h5 class="card-title" th:text="${search.title}"></h5>
-                        <p class="card-text" th:text="${search.content}"></p>
-                        <a th:href="@{'/post/'+${search.post_id}}" class="btn btn-primary">Click</a>
+                    <img th:src="|/images/${imageFile.id}|">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${list.title}"></h5>
+                        <p class="card-text" th:text="${list.content}"></p>
+                        <a th:href="@{'/post/'+${list.post_id}}" class="btn btn-primary">Click</a>
                     </div>
                 </div>
             </div>
@@ -71,9 +69,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
         </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+        </script> -->
 </body>
 
 </html>
