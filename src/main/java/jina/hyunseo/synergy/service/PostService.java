@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jina.hyunseo.synergy.domain.Post;
+import jina.hyunseo.synergy.domain.User;
 import jina.hyunseo.synergy.repository.PostRepository;
 
 @Service
@@ -33,6 +34,12 @@ public List<Post> search(String keyword) {
         return posts;
     
     }
+    @Transactional
+    public List<Post> userPostlist(String name) {
+        List<Post> userpostList = postRepository.findById(name);
+        return userpostList;
+    }
+
 @Transactional
 public void deletePost(Integer post_id){
     postRepository.deleteById(post_id);
