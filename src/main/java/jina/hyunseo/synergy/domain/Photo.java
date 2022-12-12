@@ -1,5 +1,6 @@
 package jina.hyunseo.synergy.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -25,9 +28,10 @@ public class Photo extends BaseTimeEntity {
     @Column(name = "file_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @ManyToOne(cascade = CascadeType.MERGE, targetEntity = Post.class)
+    @JoinColumn(name = "post_id", updatable = false)
+    @JsonBackReference
+    private Post post_id;
 
     @Column(nullable = false)
     private String orgNm;  // 파일 원본명
@@ -38,8 +42,9 @@ public class Photo extends BaseTimeEntity {
     private String filePath;  // 파일 저장 경로
 
     @Builder
-    public Photo(Long id, String orgNm, String savedNm, String filePath){
+    public Photo(Long id, Post post_id, String orgNm, String savedNm, String filePath){
         this.id=id;
+        this.post_id=post_id;
         this.orgNm = orgNm;
         this.savedNm=savedNm;
         this.filePath = filePath;
