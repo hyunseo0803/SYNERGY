@@ -11,5 +11,9 @@ import jina.hyunseo.synergy.domain.Post;
 public interface PostRepository extends JpaRepository<Post, Integer>{
 
     List<Post> findByTitleContaining(String keyword);
+
+    List<Post> findById(String name);
+
+
     
 }
