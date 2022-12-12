@@ -43,7 +43,7 @@
 	</header>
 	<div class="container" style="position: absolute; top: 30%;">
 		<!-- 파일 등록을 위해 enctype="multipart/form-data" 을 선언 -->
-		<form action="boardarticlein.sd" class="form-horizontal" id="frm" name="frm" method="post"
+		<form action="/post/write" class="form-horizontal" id="frm" name="frm" method="post"
 			enctype="multipart/form-data">
 
 			<h1 style="font-size: 25px; text-align: right; color: #fff;">Post your project!</h1>
@@ -59,7 +59,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-xs-12 col-form-label" for="title"></label>
 				<div class="col-sm-10 col-xs-12">
-					<input class="form-control" id="link" name="link" placeholder="URL... (ex. Git)" type="url"
+					<input class="form-control" id="link" name="git_url" placeholder="URL... (ex. Git)" type="url"
 						value="" />
 				</div>
 			</div>
@@ -75,14 +75,14 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-xs-12 col-form-label" for="bfile"></label>
 				<div class="col-sm-10 col-xs-12">
-					<input class="form-control" multiple="multiple" id="file" name="file" type="file" />
+					<input class="form-control" multiple="multiple" id="file" name="files" type="file" />
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<div class="col-sm-12">
-					<a class="btn btn-success" href="\index.html" onclick="boardIn();return false;" role="button"
-						title="저장" style="float: right;"><i class="fa fa-save"></i> Save</a>
+					<a class="btn btn-success" onclick="boardIn();return false;" role="button"
+						title="저장" style="float: right;"><i class="fa fa-save"></i><button>Save</button></a>
 				</div>
 			</div>
 
