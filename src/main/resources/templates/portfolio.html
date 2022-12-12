@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    	<!-- bootstrap을 css cdn -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
+	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link th:href="@{/css/login.css}" rel="stylessheet" > -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+      <!-- jquery cdn -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
+    <script type="text/javascript" th:src="@{/js/portfolio.js}"></script>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+   
+    <link href="/css/star.css" rel="stylesheet"/>
+</head>
+<body id="page-top" style="background-color: #91b0d3;">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav" style="padding: 10px;">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="/assets/img/lightening5.png"
+                    style="width:100px; height:100px; " class="logo" /></a>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto" style="background-color: #91b0d3;">
+                            <button class="nav-item mx-0 mx-lg-1" style="background-color: #91b0d3;"><a
+                                    class="nav-link py-3 px-0 px-lg-3 rounded" href="\foliolist.html" style="background-color: #91b0d3;"></a>Get out</a></button>
+                        </ul>
+                    </div>
+        </div>
+    </nav>
+    
+    <!-- <img class="img-fluid" src="assets/img/portfolio/snoopy.png" style="width:1000px; height:700px; margin-left: 250px;" alt="..." /> -->
+    <div class="container" style="position: absolute; top: 30%;">
+    <!-- <h2 th:text="${data.title}" class ="title" style="text-align: center;">title</h2> -->
+    <h2 class ="title" style="text-align: center;">title</h2>
+    <br>
+    <!-- <h3 th:text="${data.url}" class="url" style="text-align: center;">url</h3> -->
+    <h3 class="url" style="text-align: center;">url</h3>
+    <br>
+    <!-- <span th:text="${data.content}" rows="5" class="content" style="width:1050px; margin-left: 230px;"></span> -->
+    <span rows="5" class="content" style="width:1050px; margin-left: 230px;"></span>
+    <br>
+    <ul class="img" style="width:1050px; margin-left: 230px; overflow:scroll; width:1050px; height:150px;" >
+        <!-- <li th:each="img : ${data.imgs}"><img th:src="${img.url}" alt=""></li> -->
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+        <li><img src="/12" alt=""></li>
+    </ul>
+    <br>
+	<div class="card-body" style="width:1110px; margin-left: 200px;">
+		<ul class="list-group list-group-flush" style="background-color: #91b0d3; border-radius: 0.5rem;">
+		    <li class="list-group-item">
+                <form class="mb-3" name="myform" id="myform" method="post">
+                    <fieldset>
+                        <span class="text-bold"></span>
+                        <h6>What do you think about this portfolio</h6>
+                        <input type="radio" name="reviewStar" value="5" id="rate1" ><label
+                            for="rate1">★</label>
+                        <input type="radio" name="reviewStar" value="4" id="rate2"><label
+                            for="rate2">★</label>
+                        <input type="radio" name="reviewStar" value="3" id="rate3"><label
+                            for="rate3">★</label>
+                        <input type="radio" name="reviewStar" value="2" id="rate4"><label
+                            for="rate4">★</label>
+                        <input type="radio" name="reviewStar" value="1" id="rate5"><label
+                            for="rate5">★</label>
+                    </fieldset>
+                    </form>
+			<button type="button" class="btn btn-dark mt-3" onClick="starSubmit()" style="background-color: #ffd400; border:0; outline:0; ">submit</button>
+		    </li>
+		</ul>
+	</div>
+</div>
+</div>
+	<!--<div>
+		<textarea class="col-auto form-control" type="text" id="reviewContents"
+				  placeholder="좋은 수강평을 남겨주시면 큰 도움이 됩니다!"></textarea>
+	</div>-->	
+</body>
+</html>
