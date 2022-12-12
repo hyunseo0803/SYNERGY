@@ -45,10 +45,10 @@
                             Down
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #91b0d3;">
-                            <a class="dropdown-item" href="/portfolio">Myfolio</a>
-                            <a class="dropdown-item" href="/posting">Posting</a>
+                            <a class="dropdown-item" th:href="@{'/foliolist'}">Portfolio</a>
+                            <a class="dropdown-item" th:href="@{'/post/write'}">Posting</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/logout">Logout</a>
+                            <a class="dropdown-item" th:href="@{'/logout'}">Logout</a>
                         </div>
                     </li>
                 </ul>
