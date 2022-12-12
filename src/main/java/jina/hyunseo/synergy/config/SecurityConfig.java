@@ -28,6 +28,8 @@ public class SecurityConfig {
                 .anyRequest().authenticated() // anyRequest : 설정된 값들 이외 나머지 URL 나타냄, authenticated : 인증된 사용자
                 .and()
                 .logout()
+                .logoutUrl("/logout")
+                .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/")
 
                 .and()
