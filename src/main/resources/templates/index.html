@@ -94,8 +94,9 @@
         <!--Search section-->
         <div class="box">
             <div class="container-4">
-                <input type="search" id="search" placeholder="Search..." />
-                <button class="icon" href="#contact"><i class="fa fa-search"></i></button>
+                <form action="/post/search" method="get">
+                <input type="text" id="search" name="keyword" placeholder="Search..." />
+                <button class="icon" type="submit"><i class="fa fa-search"></i></button>
                 <!--돋보기 버튼 누르면 포폴 목록창으로 넘어가게 액션-->
             </div>
         </div>
