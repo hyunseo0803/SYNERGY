@@ -34,11 +34,6 @@ public List<Post> search(String keyword) {
         return posts;
     
     }
-    @Transactional
-    public List<Post> userPostlist(String name) {
-        List<Post> userpostList = postRepository.findById(name);
-        return userpostList;
-    }
 
 @Transactional
 public void deletePost(Integer post_id){
@@ -51,6 +46,7 @@ public Post getPost(Integer post_id) {
     Post post=postDetail.get();
     return post;
 }
+
 }
     
 
