@@ -60,14 +60,14 @@
     <div th:each="imagefile : ${all}">
         <ul class="img" style="width:1050px; margin-left: 230px; overflow:scroll; width:1050px; height:150px;" >
             <!-- <li th:each="img : ${data.imgs}"><img th:src="${img.url}" alt=""></li> -->
-            <li><img th:src="|/images/${imageFile.id}|"></li>
+            <li><img th:src="@{/images/{fileId}(fileId = (imageFile.post_id))}"></li>
         </ul>
     </div>
     <br>
     <button type="button" class="btn btn-outline-info" >Copy URL</button>
     <div>
-        <a th:href="@{'post/edit/'+${post.post_id}}">
-             <button type="button" class="btn btn-outline-light" >Update</button>
+        <a th:href="@{'/post/edit/'+${post.post_id}}">
+            <button type="button" class="btn btn-outline-light" >Update</button>
             </a>
             <form id = "delete-form" th:action="@{'post/'+${post.post_id}}" method="post">
                 <input type="hidden" name="_method" value="delete" />
