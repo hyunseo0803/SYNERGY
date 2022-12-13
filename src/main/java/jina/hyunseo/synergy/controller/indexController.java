@@ -60,25 +60,23 @@ public class indexController{
     @Autowired
     private PhotoService photoService;
 
-    //전체 포폴 리스트 
-    @GetMapping("/foliolist")
-    public String list(Model model){
-        List<Post> list=postService.getPostList();
-        model.addAttribute("list",list);
-        List<Photo> files = photoRepository.findAll();
-        model.addAttribute("all",files);
-        return "foliolist";
-    }
+    // //전체 포폴 리스트 
+    // @GetMapping("/foliolist")
+    // public String list(Model model){
+    //     List<Post> list=postService.getPostList();
+    //     model.addAttribute("list",list);
+    //     List<Photo> files = photoRepository.findAll();
+    //     model.addAttribute("all",files);
+    //     return "foliolist";
+    // }
 
     //사용자별 포폴 리스트
-    @GetMapping("/mypost")
-    public String mypost(Model model, String name){
-        List<Post> mylist=postService.userPostlist(name);
-        model.addAttribute("list",mylist);
-        List<Photo> files = photoRepository.findAll();
-        model.addAttribute("all",files);
-        return "mypost";
-    }
+    // @GetMapping("/mypost")
+    // public String mypost(Model model){
+    //     List<Photo> files = photoRepository.findAll();
+    //     model.addAttribute("all",files);
+    //     return "mypost";
+    // }
 
 
 
@@ -88,6 +86,7 @@ public class indexController{
         Post post=postService.getPost(post_id);
         model.addAttribute("post", post);
         List<Photo> files = photoRepository.findAll();
+        System.out.println(files);
         model.addAttribute("all",files);
         return "portfolio";
     }
@@ -134,7 +133,8 @@ public class indexController{
     @GetMapping("/post/search")
     public String search(Model model,String keyword){
         List<Post> searchList=postService.search(keyword);
-
+        List<Photo> files = photoRepository.findAll();
+        model.addAttribute("all",files);
         model.addAttribute("searchList", searchList);
 
         return "foliolist";
