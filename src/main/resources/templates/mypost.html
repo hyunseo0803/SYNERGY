@@ -2,9 +2,9 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- bootstrap을 css cdn -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		type="text/css" />
@@ -12,9 +12,18 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+    	<!-- Core theme CSS (includes Bootstrap)-->
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script> -->
+
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 	<!-- <link th:href="@{/css/login.css}" rel="stylessheet" > -->
 	<link rel="stylesheet" th:href="@{/css/styles.css}">
 	<link th:href="@{/css/login.css}" rel="stylesheet">
@@ -28,69 +37,39 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
 		type="text/css" />
 
-	<!-- Core theme CSS (includes Bootstrap)-->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-		</script>
-
-	<link href="css/styles.css" rel="stylesheet" />
-	<script type="text/javascript" th:src="@{/js/project.js}"></script>
+    <title>My portfolio</title>
 </head>
 
-<body style="background-color: #91b0d3;">
+<body id="page-top" style="background-color: #91b0d3;">
 	<header>
 		<div th:replace="fragments/common::navbar"></div>
 	</header>
-	<div class="container" style="position: absolute; top: 30%;">
-		<!-- 파일 등록을 위해 enctype="multipart/form-data" 을 선언 -->
-		<form action="/post/write" class="form-horizontal" id="frm" name="frm" method="post"
-			enctype="multipart/form-data">
-
-            <p>
-                <div>ID</label> 
-                <input class="w3-input" type="text" id="id" name="id" readonly value="${ member.id }"> 
-            </p>
-            <p>
-                <label>Email</label> 
-                <input class="w3-input" type="text" id="email" name="email" value="${ member.email }" required> 
-            </p>
-            <p class="w3-center">
-                <button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
-            </p>
-
-			<h2 style="font-size: 25px; text-align: right; color: #fff; position:absolute; top:-50px; right:160px; margin-left: 20px;">This is your folio.</h2>
-
     <!-- th:if="${not #strings.isEmpty(name)}" 밑에 부분에 넣기-->
-    <div class="container">
+    <div class="container" th:if="${not #strings.isEmpty(name)}" >
+        <h2 style="color:#fff">Myfolio</h2>
         <div class="row">
-            <div class="col-3" style="position:absolute; right:100px">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1563725911583-7d108f720483" class="card-img-top"
-                        alt="...">
-                    <div class="card-body" th:each="search : ${searchList}">
-                        <h5 class="card-title" th:text="${search.title}"></h5>
+            <div class="col-3" th:each="data : ${datalist}">
+                <div class="card" style="width:300px; height:400px;">
+                    <img th:src="|/images/${imageFile.id}|" style="width:300px; height:300px;">
+                    <div class="card-body">
+                        <a th:href="@{'/post/'+${list.post_id}}" class="btn btn-primary">Click</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-		</form>
-	</div>
 
-	<script type="text/javascript">
-		function boardIn() {
-			$('#frm').submit();
-		}
-	</script>
-	    <!-- Bootstrap core JS-->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
-		<script src="js/scripts.js"></script>
-		<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-		<!-- * *                               SB Forms JS                               * *-->
-		<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-		<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-		<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script> -->
 </body>
 
 </html>
