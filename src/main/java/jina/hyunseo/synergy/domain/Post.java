@@ -35,10 +35,10 @@ public class Post extends BaseTimeEntity{
     @JsonBackReference
     private User name;
 
-    @ManyToOne(cascade = CascadeType.MERGE, targetEntity = Photo.class)
+    @ManyToOne
     @JoinColumn(name = "file_id", updatable = false)
     @JsonBackReference
-    private Photo photo_id;
+    private  Photo id;
 
     private String git_url;
     private String title;
@@ -46,16 +46,16 @@ public class Post extends BaseTimeEntity{
     
 
     @OneToMany(
-        mappedBy = "post",
+        mappedBy = "post_id",
         cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
         orphanRemoval = true
     )
     private List<Photo> photo = new ArrayList<>();
 
     @Builder
-    public Post(User name, Photo photo_id, String git_url, String title, String content) {
+    public Post(User name, Photo id, String git_url, String title, String content) {
         this.name = name;
-        this.photo_id= photo_id;
+        this.id= id;
         this.title = title;
         this.git_url=git_url;
         this.content = content;
