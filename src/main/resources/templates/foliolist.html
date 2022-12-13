@@ -46,15 +46,15 @@
 	</header>
 
     <!-- th:if="${not #strings.isEmpty(name)}" 밑에 부분에 넣기-->
-    <div class="container" th:if="${not #strings.isEmpty(name)}" >
+    <div class="container" style="position:absolute; top:170px; left:100px">
         <div class="row">
-            <div class="col-3" th:each="data : ${datalist}">
-                <div class="card">
-                    <img th:src="|/images/${imageFile.id}|">
+            <div class="col-3" th:each="searchList : ${searchList}">
+                <div class="card" >
+                    <img srs="">
                     <div class="card-body">
-                        <h5 class="card-title" th:text="${list.title}"></h5>
-                        <p class="card-text" th:text="${list.content}"></p>
-                        <a th:href="@{'/post/'+${list.post_id}}" class="btn btn-primary">Click</a>
+                        <h5 class="card-title" th:text="${searchList.title}"></h5>
+                        <p class="card-text" th:text="${searchList.content}"></p>
+                        <a th:href="@{'/post/'+${searchList.post_id}}" class="btn btn-primary">Click</a>
                     </div>
                 </div>
             </div>
